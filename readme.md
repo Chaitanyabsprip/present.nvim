@@ -1,4 +1,4 @@
-# Presenting.nvim
+# Present.nvim
 
 A Presentation plugin written for [Neovim](https://github.com/neovim/neovim) in Lua
 
