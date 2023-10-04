@@ -51,4 +51,4 @@ I heavily use [toilet](https://github.com/cacalabs/toilet) to create my headings
 and sub-headings. I use [vim-unicode-snippets](https://github.com/danielwe/vim-unicode-snippets) to insert
 unicode characters like bullets or checks.
 
-You can find the example displaying in the gif in the `assets/` folder
+You can find a rather naive example displaying in the gif in the `assets/` folder.
