@@ -72,27 +72,39 @@ M.disable_ui = function(enable)
   end
 end
 
+M.disable_markdown_format = function(enable)
+  if enable then
+    vim.cmd [[LspStop 1]]
+  end
+  vim.cmd [[LspStart]]
+end
+
 M.present = function(enable)
   if enable == nil then
     enable = not M.presenting
   end
   M.disable_ui(enable)
+  M.disable_markdown_format(enable)
   if M.options.kitty ~= nil then
     M.kitty_resize_font(enable)
   end
   M.presenting = not M.presenting
   if M.options.default_mappings then
-    vim.cmd [[
-      augroup present
-        autocmd!
-        autocmd BufRead,BufNewFile slide.* lua require'present'.keymaps()
-      augroup end
-
-      augroup reset_present
-        autocmd!
-        autocmd VimLeavePre slide.* PresentDisable
-      augroup end
-    ]]
+    local present = vim.api.nvim_create_augroup 'present'
+    vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+      callback = function()
+        require('present').keymaps()
+        M.disable_ui(enable)
+      end,
+      group = present,
+      pattern = 'slide.*',
+    })
+    local reset_present = vim.api.nvim_create_augroup 'reset_present'
+    vim.api.nvim_create_autocmd({ 'VimLeavePre' }, {
+      command = 'PresentDisable',
+      group = reset_present,
+      pattern = 'slide.*',
+    })
   end
 end
 
