@@ -11,14 +11,25 @@ You can install Present with your plugin manager of choice
 - with [packer.nvim](https://github.com/wbthomason/packer.nvim)
 
 ```lua
-  use {
-    'Chaitanyabsprip/present.nvim',
-    config = function()
-      require('present').setup{
-        -- ... your config here
-      }
-    end
-  }
+use {
+  'Chaitanyabsprip/present.nvim',
+  config = function()
+    require('present').setup {
+      -- ... your config here
+    }
+  end,
+}
+```
+
+- with [lazy.nvim](https://github.com/folke/lazy.nvim)
+
+```lua
+use {
+  'Chaitanyabsprip/present.nvim',
+  opts = {
+    -- ... your config here
+  },
+}
 ```
 
 ## Configuration
