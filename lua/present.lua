@@ -14,7 +14,7 @@ local defaults = {
   default_mappings = true,
   kitty = {
     normal_font_size = 12,
-    zoom_font_size = 28,
+    zoomed_font_size = 28,
   },
 }
 
@@ -34,7 +34,7 @@ M.kitty_resize_font = function(enable)
   local socket = vim.fn.expand '$KITTY_LISTEN_ON'
   if enable then
     vim.fn.system(
-      cmd:format(socket, string.format('%s', M.options.kitty.zoom_font_size))
+      cmd:format(socket, string.format('%s', M.options.kitty.zoomed_font_size))
     )
   else
     vim.fn.system(
