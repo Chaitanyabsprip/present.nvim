@@ -24,7 +24,7 @@ use {
 - with [lazy.nvim](https://github.com/folke/lazy.nvim)
 
 ```lua
-use {
+{
   'Chaitanyabsprip/present.nvim',
   opts = {
     -- ... your config here
