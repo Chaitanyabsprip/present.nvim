@@ -1,4 +1,4 @@
-if not vim.api.nvim_has_feature 'nvim-0.5' then
+if not vim.fn.has 'nvim-0.5' then
   vim.api.nvim_echo(
     { { 'Present needs Neovim >= 0.5', 'WarningMsg' } },
     true,
